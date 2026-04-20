@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A State of Mind Therapy — Boulder, CO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Page-specific styles */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+    background: var(--warm-white);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(122,158,126,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-text { padding-right: 4rem; }
+  .hero-eyebrow {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: inline-block; width: 2rem; height: 2px; background: var(--rust);
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300; line-height: 1.15; letter-spacing: -0.01em;
+    color: var(--charcoal); margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--rust); }
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 400; line-height: 1.8;
+    color: var(--charcoal); max-width: 38ch; margin-bottom: 2.5rem;
+  }
+  .hero-visual { position: relative; height: 70vh; min-height: 500px; }
+  .hero-img-frame {
+    position: absolute; top: 0; right: 0; bottom: 0; left: 4rem;
+    background: linear-gradient(160deg, #8aaa90 0%, #4f7355 40%, #2a4530 100%);
+    border-radius: 2px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+  .hero-img-frame img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block;
+  }
+  .hero-label {
+    position: absolute; bottom: 2rem; left: 2rem;
+    background: rgba(253,250,245,0.95); padding: 1.5rem 2rem;
+    border-left: 3px solid var(--rust); max-width: 260px;
+  }
+  .hero-label p {
+    font-family: var(--font-serif); font-size: 1.1rem; font-weight: 300; font-style: italic;
+    color: var(--charcoal); line-height: 1.5;
+  }
+  .hero-label span {
+    display: block; margin-top: 0.5rem;
+    font-size: 0.7rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--earth);
+  }
+
+  .about-section {
+    padding: 7rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    max-width: 1300px; margin: 0 auto;
+  }
+  .about-img { position: relative; height: 560px; }
+  .about-img-main {
+    position: absolute; top: 0; left: 0; right: 3rem; bottom: 3rem;
+    background: linear-gradient(170deg, #d68265 0%, #b85436 50%, #8a3920 100%);
+    border-radius: 2px; overflow: hidden;
+  }
+  .about-img-main img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+    display: block;
+  }
+  .about-img-accent {
+    position: absolute; bottom: 0; right: 0;
+    width: 180px; height: 180px;
+    background: var(--sage-light); border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-img-accent-inner { text-align: center; padding: 1.5rem; }
+  .about-img-accent-inner .num {
+    font-family: var(--font-serif); font-size: 2.5rem; font-weight: 300; color: var(--cream);
+  }
+  .about-img-accent-inner .label {
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(253,250,245,0.8); line-height: 1.5;
+  }
+  .about-text h2 {
+    font-family: var(--font-serif); font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 300; line-height: 1.2; color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+  .about-text .credentials {
+    font-size: 0.8rem; letter-spacing: 0.1em; color: var(--sage-dark);
+    margin-bottom: 2rem; font-weight: 400;
+  }
+  .about-text p {
+    font-size: 0.95rem; font-weight: 300; line-height: 1.9;
+    color: var(--mid); margin-bottom: 1.2rem;
+  }
+
+  .testimonials {
+    background: var(--cream); padding: 7rem 4rem;
+  }
+  .testimonials-header { text-align: center; margin-bottom: 4rem; }
+  .testimonials-header h2 {
+    font-family: var(--font-serif); font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300; color: var(--charcoal);
+  }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    max-width: 1300px; margin: 0 auto;
+  }
+  .testimonial-card {
+    background: var(--warm-white); padding: 2rem;
+    border-top: 3px solid var(--rust);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(184,84,54,0.12);
+  }
+  .stars { color: var(--gold); font-size: 0.95rem; letter-spacing: 0.2em; margin-bottom: 1rem; }
+  .testimonial-card blockquote {
+    font-family: var(--font-serif); font-size: 1rem; font-weight: 300; font-style: italic;
+    line-height: 1.75; color: var(--charcoal); margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  .testimonial-card .reviewer {
+    font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--earth);
+  }
+  .testimonial-card .reviewer-role {
+    font-size: 0.72rem; color: var(--mid); margin-top: 0.2rem;
+  }
+  .testimonial-card .reviewer-date {
+    font-size: 0.7rem; color: var(--mid); opacity: 0.7; margin-top: 0.4rem;
+    font-style: italic;
+  }
+
+  /* Google Reviews CTA */
+  .reviews-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 380px;
+    margin: 4rem auto 0;
+    padding: 2rem 2.5rem;
+    background: var(--warm-white);
+    border-top: 3px solid var(--rust);
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  }
+  .reviews-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(184,84,54,0.12);
+  }
+  .reviews-cta .g-icon {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .reviews-cta .g-icon .blue { color: #4285F4; }
+  .reviews-cta .g-icon .red { color: #EA4335; }
+  .reviews-cta .g-icon .yellow { color: #FBBC05; }
+  .reviews-cta .g-icon .green { color: #34A853; }
+  .reviews-cta .reviews-stars {
+    color: var(--gold); font-size: 1.1rem; letter-spacing: 0.2em;
+  }
+  .reviews-cta .reviews-text {
+    font-size: 0.95rem; color: var(--mid); font-weight: 300;
+    margin: 0;
+  }
+  .reviews-cta .reviews-text strong { color: var(--charcoal); font-weight: 500; }
+  .reviews-cta .reviews-link {
+    margin-top: 0.5rem;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+    color: var(--rust);
+    padding-bottom: 0.25rem;
+    border-bottom: 1.5px solid var(--rust);
+    transition: color 0.2s;
+  }
+  .reviews-cta:hover .reviews-link { color: var(--rust-dark); border-bottom-color: var(--rust-dark); }
+
+  /* ── EMAIL POP-UP ── */
+  .popup-overlay {
+    position: fixed; inset: 0;
+    background: rgba(28,28,28,0.55);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  .popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .popup-card {
+    background: var(--warm-white);
+    width: 100%;
+    max-width: 880px;
+    max-height: 92vh;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    border-radius: 4px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    position: relative;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .popup-overlay.show .popup-card { transform: translateY(0) scale(1); }
+  .popup-image {
+    background: var(--sage-light);
+    overflow: hidden;
+    min-height: 360px;
+    position: relative;
+  }
+  .popup-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .popup-content {
+    padding: 3rem 2.5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .popup-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rust); font-weight: 500;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .popup-eyebrow::before {
+    content: ''; width: 1.5rem; height: 2px; background: var(--rust);
+  }
+  .popup-content h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .popup-content h2 em { font-style: italic; color: var(--rust); }
+  .popup-content p {
+    font-size: 0.95rem; line-height: 1.7;
+    color: var(--mid); font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  .popup-form {
+    display: flex; flex-direction: column; gap: 0.85rem;
+  }
+  .popup-form input[type="email"] {
+    width: 100%;
+    padding: 1rem 1rem;
+    background: transparent;
+    border: 1.5px solid var(--light-gray);
+    border-radius: 2px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--charcoal);
+    transition: border-color 0.2s;
+  }
+  .popup-form input[type="email"]:focus {
+    outline: none; border-color: var(--rust);
+  }
+  .popup-form button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--rust);
+    color: var(--cream);
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(184,84,54,0.25);
+  }
+  .popup-form button:hover {
+    background: var(--rust-dark);
+    box-shadow: 0 6px 20px rgba(138,57,32,0.35);
+  }
+  .popup-fineprint {
+    font-size: 0.78rem; color: var(--mid); font-weight: 300;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .popup-close {
+    position: absolute; top: 1rem; right: 1rem;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(253,247,235,0.95);
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--charcoal);
+    font-size: 1.4rem; line-height: 1;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 2;
+  }
+  .popup-close:hover {
+    transform: rotate(90deg);
+    background: var(--rust);
+    color: var(--cream);
+  }
+  @media (max-width: 700px) {
+    .popup-card { grid-template-columns: 1fr; max-height: 95vh; }
+    .popup-image { min-height: 200px; max-height: 240px; }
+    .popup-content { padding: 2rem 1.5rem; }
+  }
+
+  .vision {
+    padding: 8rem 4rem;
+    position: relative; overflow: hidden;
+    background: var(--warm-white);
+  }
+  .vision::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(122,158,126,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .vision-inner { max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .vision h2 {
+    font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300; line-height: 1.3; color: var(--charcoal);
+    margin-bottom: 2rem;
+  }
+  .vision h2 em { font-style: italic; color: var(--sage-dark); }
+  .vision p {
+    font-size: 1rem; font-weight: 300; line-height: 2;
+    color: var(--mid); margin-bottom: 1rem; max-width: 60ch; margin-inline: auto;
+  }
+  .vision .cta-group { display: flex; gap: 1rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
+
+  .specialties {
+    background: var(--charcoal); padding: 7rem 4rem;
+  }
+  .specialties-header { margin-bottom: 4rem; max-width: 1300px; margin-inline: auto; }
+  .specialties-header .section-label { color: var(--sage-light); }
+  .specialties-header .section-label::before { background: var(--sage-light); }
+  .specialties-header h2 {
+    font-family: var(--font-serif); font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300; color: var(--cream);
+  }
+  .specialties-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+    background: rgba(255,255,255,0.08);
+    max-width: 1300px; margin: 0 auto;
+  }
+  .specialty-card {
+    background: var(--charcoal); padding: 3rem 2.5rem;
+    text-decoration: none; transition: background 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .specialty-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--rust); transform: scaleX(0); transition: transform 0.3s;
+  }
+  .specialty-card:hover { background: rgba(255,255,255,0.04); }
+  .specialty-card:hover::before { transform: scaleX(1); }
+  .specialty-icon {
+    width: 48px; height: 48px; margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 50%;
+    font-size: 1.2rem;
+  }
+  .specialty-card h3 {
+    font-family: var(--font-serif); font-size: 1.6rem; font-weight: 300;
+    color: var(--cream); margin-bottom: 0.75rem;
+  }
+  .specialty-card p {
+    font-size: 0.85rem; font-weight: 300; line-height: 1.8; color: rgba(245,240,232,0.55);
+  }
+  .specialty-arrow {
+    position: absolute; top: 2.5rem; right: 2.5rem;
+    color: rgba(255,255,255,0.2); font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
+  }
+  .specialty-card:hover .specialty-arrow { color: var(--sage-light); transform: translate(4px, -4px); }
+
+  /* Contact form section */
+  .contact-section {
+    padding: 7rem 4rem;
+    background: var(--cream);
+  }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+    max-width: 1300px; margin: 0 auto;
+  }
+  .contact-info h2 {
+    font-family: var(--font-serif); font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 300; line-height: 1.3; color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+  .contact-info p {
+    font-size: 0.95rem; font-weight: 300; line-height: 1.9;
+    color: var(--mid); margin-bottom: 1.2rem;
+  }
+  .contact-info .phone-link {
+    display: inline-block;
+    font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400;
+    color: var(--rust); text-decoration: none;
+    margin: 1rem 0; letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--rust); padding-bottom: 0.25rem;
+    transition: color 0.2s;
+  }
+  .contact-info .phone-link:hover { color: var(--charcoal); }
+
+  .contact-form {
+    background: var(--warm-white);
+    padding: 2.5rem;
+    border-top: 3px solid var(--rust);
+  }
+  .contact-form h3 {
+    font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400;
+    color: var(--charcoal); margin-bottom: 1.5rem;
+  }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.7rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--earth); margin-bottom: 0.5rem;
+  }
+  .form-group input, .form-group textarea {
+    width: 100%; padding: 0.85rem 1rem;
+    background: transparent;
+    border: none; border-bottom: 1px solid var(--light-gray);
+    font-family: var(--font-sans); font-size: 0.95rem; color: var(--charcoal);
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    outline: none; border-bottom-color: var(--sage-dark);
+  }
+  .form-group textarea {
+    min-height: 120px; resize: vertical;
+    border: 1px solid var(--light-gray);
+  }
+  .contact-form button {
+    margin-top: 1rem;
+  }
+
+  /* Practice info band */
+  .practice-info {
+    padding: 5rem 4rem;
+    background: var(--warm-white);
+    text-align: center;
+  }
+  .practice-info-inner { max-width: 760px; margin: 0 auto; }
+  .practice-info h2 {
+    font-family: var(--font-serif); font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 300; line-height: 1.4; color: var(--charcoal);
+    margin-bottom: 2rem;
+  }
+  .practice-info .provider-block {
+    margin-top: 2rem; padding-top: 2rem;
+    border-top: 1px solid var(--light-gray);
+    display: flex; flex-direction: column; gap: 0.5rem; align-items: center;
+  }
+  .practice-info .provider-label {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--earth);
+  }
+  .practice-info .provider-name {
+    font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400;
+    color: var(--charcoal);
+  }
+  .practice-info .provider-license {
+    font-size: 0.85rem; color: var(--mid); font-weight: 300;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+    .hero-text { padding-right: 0; margin-bottom: 3rem; }
+    .hero-visual { height: 60vw; min-height: 280px; }
+    .hero-img-frame { left: 0; }
+    .about-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
+    .testimonials, .specialties, .vision, .practice-info { padding: 4rem 1.5rem; }
+    .testimonials-grid, .specialties-grid { grid-template-columns: 1fr; }
+    .about-img { height: 400px; }
+    .contact-section { padding: 4rem 1.5rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-form { padding: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-mount"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow fade-up">Therapy in Boulder, CO</p>
+    <h1 class="fade-up delay-1">
+      You're ready for <em>something to change.</em> I'm here to help you get there.
+    </h1>
+    <p class="hero-sub fade-up delay-2">Depth-oriented therapy for clarity, confidence, and aligned action.</p>
+    <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary fade-up delay-3" target="_blank">Schedule A Free Consultation</a>
+  </div>
+  <div class="hero-visual fade-up delay-2">
+    <div class="hero-img-frame">
+      <img src="images/julian-portrait-main.jpg" alt="Julian Royce, MA LPC — Therapist in Boulder, CO">
+    </div>
+    <div class="hero-label">
+      <p>"A space to feel, to know — &amp; to become."</p>
+      <span>Boulder, CO · Online across Colorado</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section scroll-reveal" id="about">
+  <div class="about-img">
+    <div class="about-img-main">
+      <img src="images/julian-portrait-doorway-1.jpg" alt="Julian Royce in his Boulder office">
+    </div>
+    <div class="about-img-accent">
+      <div class="about-img-accent-inner">
+        <div class="num">10+</div>
+        <div class="label">Years of<br>Practice</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-text">
+    <p class="section-label">Meet Your Therapist</p>
+    <h2>Julian Royce</h2>
+    <p class="credentials">MA, LPC</p>
+    <p>Despite living in the wealthiest society in recorded history, many of us today are beset by anxiety, depression and lack of meaning and connection.</p>
+    <p>I became a trauma informed therapist, transformational coach &amp; meditation teacher to help people to heal and to rediscover their connection with the greater world and to live the lives they are meant to be living during our brief time on this planet.</p>
+    <p>Having seen the healing and transformative power of therapy, in helping people heal from trauma, build healthy relationships, ease anxiety, and build a life that brings them joy, I know that this is possible for you as well.</p>
+    <p>Schedule a free consultation by clicking the button below, and we can see how I might be able to help. I hope I get the chance to meet you!</p>
+    <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    <a href="about.html" class="btn btn-outline">More About Me</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label center">Client Stories</p>
+    <h2>What People Are Saying</h2>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card scroll-reveal">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"I want you to know that our son, C__, who you worked with 2 years ago, has not smoked pot since then which means he hasn't had any more episodes of CHS (Cannabinoid hyperemesis syndrome)! We are so thankful that you helped our son"</blockquote>
+      <div class="reviewer">H.S.</div>
+      <div class="reviewer-role">Client's Parent</div>
+      <div class="reviewer-date">05-09-2020</div>
+    </div>
+
+    <div class="testimonial-card scroll-reveal">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"Julian held a really great space during our session. I felt a lot of trust with the gentleness of his speaking and how he reflecting back to me my own process as I worked through it. I am leaving my session with him in a deep feeling of gratitude for everything."</blockquote>
+      <div class="reviewer">Steven J</div>
+      <div class="reviewer-role">Client</div>
+      <div class="reviewer-date">15-02-2022</div>
+    </div>
+
+    <div class="testimonial-card scroll-reveal">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"Julian has been such a joy to work with. In just a few sessions, his insight and guidance have helped me to gain incredible clarity. Julian has created a safe environment to go deep and explore beneath the surface. I am incredibly grateful for Julian and the support he has provided."</blockquote>
+      <div class="reviewer">Mary K</div>
+      <div class="reviewer-role">Client</div>
+      <div class="reviewer-date">20-10-2019</div>
+    </div>
+
+    <div class="testimonial-card scroll-reveal">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"It is like the sun has come out for Alex (not their real name). We are so grateful to see the profound changes in our child and to see them thriving and no longer at risk"</blockquote>
+      <div class="reviewer">R.J.</div>
+      <div class="reviewer-role">Client's Parent</div>
+      <div class="reviewer-date">10-10-2020</div>
+    </div>
+
+    <div class="testimonial-card scroll-reveal">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"The quality of soulfulness and depth with which Julian operates is profound. He's got the Midas Touch especially when working with clients. I highly recommend his work"</blockquote>
+      <div class="reviewer">Kevin McKeag</div>
+      <div class="reviewer-role">Client</div>
+      <div class="reviewer-date">09-08-2023</div>
+    </div>
+
+    <div class="testimonial-card scroll-reveal">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"Humans thrive when Someone validates their unique sparkle. Julian is a gifted healer. We wholeheartedly recommend him"</blockquote>
+      <div class="reviewer">Alex M.</div>
+      <div class="reviewer-role">Client</div>
+      <div class="reviewer-date">19-07-2023</div>
+    </div>
+
+  </div>
+
+  <a href="https://maps.app.goo.gl/YpEcDrJqtNgdsnRA6" target="_blank" rel="noopener" class="reviews-cta scroll-reveal">
+    <div class="g-icon">
+      <span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span class="blue">g</span><span class="green">l</span><span class="red">e</span>
+    </div>
+    <div class="reviews-stars">★ ★ ★ ★ ★</div>
+    <p class="reviews-text">See <strong>our reviews</strong> on Google</p>
+    <span class="reviews-link">View Reviews</span>
+  </a>
+
+</section>
+
+<!-- VISION -->
+<section class="vision">
+  <div class="vision-inner scroll-reveal">
+    <p class="section-label center">What's Possible For You</p>
+    <h2>You can find <em>inner harmony</em></h2>
+    <p>You can begin to create a life free from repeating your personal, familial &amp; collective traumas;</p>
+    <p>A life filled with fulfilling relationships, access to your inner wisdom, cultivating genuine happiness &amp; giving your gifts to this world that so desperately needs them.</p>
+    <p>This is possible for you, and I would love to walk alongside as you make this a reality.</p>
+    <div class="cta-group">
+      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary" target="_blank">Schedule A Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="specialties" id="specialties">
+  <div class="specialties-header">
+    <p class="section-label">Areas of Focus</p>
+    <h2>Specialties</h2>
+  </div>
+  <div class="specialties-grid">
+    <a href="trauma.html" class="specialty-card scroll-reveal">
+      <div class="specialty-icon">🌿</div>
+      <h3>Trauma</h3>
+      <p>Healing from past wounds using evidence-based, compassionate approaches that restore safety and wholeness.</p>
+      <span class="specialty-arrow">↗</span>
+    </a>
+    <a href="relationships.html" class="specialty-card scroll-reveal">
+      <div class="specialty-icon">🤝</div>
+      <h3>Relationships</h3>
+      <p>Building the skills and awareness needed to create deeper, more fulfilling connections with others and yourself.</p>
+      <span class="specialty-arrow">↗</span>
+    </a>
+    <a href="psychedelic-therapy.html" class="specialty-card scroll-reveal">
+      <div class="specialty-icon">✨</div>
+      <h3>Psychedelic Therapy</h3>
+      <p>Integrative support for psychedelic experiences, including psilocybin-assisted and ketamine-assisted therapy.</p>
+      <span class="specialty-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info scroll-reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2>I would love to help you build a life that brings you happiness and fulfillment.</h2>
+      <p>Anxiety, depression, unhealthy relationships &amp; loneliness does not need to be your normal. Fundamental clarity, freedom &amp; loving connections are our birth right as human beings and there is no reason you can't deeply know this to be true — for you.</p>
+      <p>Reach out to me today to schedule a free 20 minute consultation.</p>
+      <p>I hope to hear from you.</p>
+      <a href="tel:3034166116" class="phone-link">(303) 416-6116</a>
+    </div>
+    <div class="contact-form scroll-reveal">
+      <h3>Contact</h3>
+      <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! Please connect this form to your email service.');">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE INFO BAND -->
+<section class="practice-info">
+  <div class="practice-info-inner scroll-reveal">
+    <p class="section-label center">About Me</p>
+    <h2>We are a therapy practice offering therapy and counseling services in Boulder &amp; online throughout Colorado.</h2>
+    <div class="provider-block">
+      <span class="provider-label">Licensed Provider</span>
+      <span class="provider-name">Julian Royce, MS, LPC</span>
+      <span class="provider-license">#76277 Licensed Professional Counselor</span>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="site.js"></script>
+</body>
+</html>

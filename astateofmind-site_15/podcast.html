@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A State of Mind Podcast — A State of Mind Therapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .podcast-hero {
+    position: relative;
+    min-height: 60vh;
+    padding: 12rem 4rem 5rem;
+    overflow: hidden;
+    background: linear-gradient(160deg, #4d6e52 0%, #2b2b2b 100%);
+  }
+  .podcast-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url('images/julian-podcast.jpg');
+    background-size: cover; background-position: center;
+    opacity: 0.35;
+    filter: grayscale(0.2);
+  }
+  .podcast-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(43,43,43,0.4) 0%, rgba(43,43,43,0.85) 100%);
+  }
+  .podcast-hero-inner {
+    position: relative; z-index: 1;
+    max-width: 800px; margin: 0 auto;
+    text-align: center;
+  }
+  .podcast-hero .section-label {
+    color: var(--sage-light); justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .podcast-hero .section-label::before { background: var(--sage-light); }
+  .podcast-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 300; line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .podcast-hero h1 em { font-style: italic; color: var(--sage-light); }
+  .podcast-hero .subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.4rem; font-weight: 300; font-style: italic;
+    color: rgba(245,240,232,0.85); line-height: 1.6;
+    max-width: 60ch; margin: 0 auto;
+  }
+
+  .episode-section {
+    padding: 6rem 4rem;
+    background: var(--warm-white);
+  }
+  .episode-inner {
+    max-width: 900px; margin: 0 auto;
+    text-align: center;
+  }
+  .episode-section h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300; color: var(--charcoal);
+    margin-bottom: 2.5rem;
+    line-height: 1.3;
+  }
+  .episode-section h2 em { font-style: italic; color: var(--sage-dark); }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    background: var(--charcoal);
+  }
+  .video-frame iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .platforms-section {
+    padding: 5rem 4rem 7rem;
+    background: var(--warm-white);
+    text-align: center;
+  }
+  .platforms-section h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 300; color: var(--charcoal);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .platforms-grid {
+    display: flex; justify-content: center; align-items: center;
+    gap: 3rem; flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .platform-link {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    text-decoration: none; color: var(--mid);
+    transition: transform 0.3s, color 0.3s;
+  }
+  .platform-link:hover { transform: translateY(-4px); color: var(--charcoal); }
+  .platform-icon {
+    width: 80px; height: 80px;
+    border-radius: 22%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .platform-link:hover .platform-icon {
+    box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+    transform: scale(1.05);
+  }
+  .platform-icon.apple { background: linear-gradient(135deg, #b052ff 0%, #7d2ae8 100%); }
+  .platform-icon.spotify { background: #1db954; }
+  .platform-icon.youtube { background: #ff0000; }
+  .platform-link span.platform-name {
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .about-show {
+    background: var(--cream);
+    padding: 6rem 4rem;
+  }
+  .about-show-inner {
+    max-width: 800px; margin: 0 auto;
+    text-align: center;
+  }
+  .about-show .section-label { justify-content: center; }
+  .about-show h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 300; color: var(--charcoal);
+    margin-bottom: 2rem; line-height: 1.4;
+  }
+  .about-show p {
+    font-size: 1.02rem; font-weight: 300; line-height: 1.95;
+    color: var(--mid); margin-bottom: 1.4rem;
+  }
+
+  @media (max-width: 900px) {
+    .podcast-hero { padding: 7rem 1.5rem 3rem; min-height: auto; }
+    .episode-section { padding: 3rem 1.5rem; }
+    .platforms-section { padding: 3rem 1.5rem 4rem; }
+    .platforms-grid { gap: 2rem; }
+    .platform-icon { width: 64px; height: 64px; }
+    .platform-icon svg { width: 36px; height: 36px; }
+    .about-show { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-mount"></div>
+
+<header class="podcast-hero">
+  <div class="podcast-hero-inner">
+    <p class="section-label fade-up">A State of Mind</p>
+    <h1 class="fade-up delay-1"><em>Podcast</em></h1>
+    <p class="subtitle fade-up delay-2">Conversations about psychology, contemplative practice, healing, and what it means to live a meaningful life.</p>
+  </div>
+</header>
+
+<section class="episode-section scroll-reveal">
+  <div class="episode-inner">
+    <h2>View My Latest <em>Podcast Episode</em> Here!</h2>
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=PLW03CSmiv3xuVR4-hoV1Fje8oevL8uMRW"
+        title="A State of Mind Podcast — Latest Episode"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section class="platforms-section">
+  <h3>Also Support Us On…</h3>
+  <div class="platforms-grid scroll-reveal">
+
+    <a href="https://podcasts.apple.com/" class="platform-link" target="_blank" rel="noopener">
+      <div class="platform-icon apple">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 4.83a3.39 3.39 0 1 1 0 6.78 3.39 3.39 0 0 1 0-6.78zm-4.32 9.18c.46-.65 1.21-1.07 2.07-1.07h4.5c.86 0 1.61.42 2.07 1.07l1.16 4.7a.78.78 0 0 1-.78.96h-1.32a.94.94 0 0 1-.92-.7l-.42-1.5a.78.78 0 0 0-.76-.58H10.7a.78.78 0 0 0-.76.58l-.42 1.5a.94.94 0 0 1-.92.7H7.3a.78.78 0 0 1-.78-.96l1.16-4.7zM12 14.6a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Apple Podcasts</span>
+    </a>
+
+    <a href="https://open.spotify.com/" class="platform-link" target="_blank" rel="noopener">
+      <div class="platform-icon spotify">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+      </div>
+      <span class="platform-name">Spotify</span>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=k1TjakbQO_M&list=PLW03CSmiv3xuVR4-hoV1Fje8oevL8uMRW" class="platform-link" target="_blank" rel="noopener">
+      <div class="platform-icon youtube">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      </div>
+      <span class="platform-name">YouTube</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="about-show scroll-reveal">
+  <div class="about-show-inner">
+    <p class="section-label center">About the Show</p>
+    <h2>A space for the conversations that matter.</h2>
+    <p>A State of Mind is a long-form interview podcast hosted by Julian Royce. Each episode features in-depth conversations with therapists, meditation teachers, researchers, and others doing meaningful work at the intersection of psychology, spirituality, and human flourishing.</p>
+    <p>The conversations are unhurried, curious, and aimed at depth rather than soundbites. Subscribe on your favorite platform and join us for the journey.</p>
+  </div>
+</section>
+
+<section class="shared-contact-section" id="contact">
+  <div class="shared-contact-inner">
+    <div class="shared-contact-info scroll-reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2>I would love to help you build a life that brings you happiness and fulfillment.</h2>
+      <p>Anxiety, depression, unhealthy relationships, loneliness — this doesn't have to be your normal. You can make positive change.</p>
+      <p>Reach out to me today to schedule a free 15 minute consultation.</p>
+      <p>I hope to hear from you.</p>
+      <a href="tel:3034166116" class="phone-link">(303) 416-6116</a>
+      <br>
+      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary schedule-btn" target="_blank">Schedule A Free Consultation</a>
+    </div>
+    <div class="shared-contact-form scroll-reveal">
+      <h3>Contact</h3>
+      <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! Please connect this form to your email service.');">
+        <div class="shared-form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="shared-practice-info">
+  <div class="shared-practice-info-inner scroll-reveal">
+    <p class="section-label center">About Me</p>
+    <h2>We are a therapy practice offering therapy and counseling services in Boulder &amp; online throughout Colorado.</h2>
+    <div class="provider-block">
+      <span class="provider-label">Licensed Provider</span>
+      <span class="provider-name">Julian Royce, MS, LPC</span>
+      <span class="provider-license">#76277 Licensed Professional Counselor</span>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="site.js"></script>
+</body>
+</html>

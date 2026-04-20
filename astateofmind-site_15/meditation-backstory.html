@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julian's Meditation Backstory — A State of Mind Therapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .coming-soon-hero {
+    min-height: 90vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 10rem 4rem 6rem;
+    position: relative; overflow: hidden;
+    background: var(--warm-white);
+    text-align: center;
+  }
+  .coming-soon-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 30% 30%, rgba(122,158,126,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 75% 65%, rgba(156,122,92,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .coming-soon-inner { max-width: 720px; position: relative; z-index: 1; }
+  .coming-soon-mark {
+    width: 80px; height: 80px;
+    border: 1.5px solid var(--rust);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2.5rem;
+    position: relative;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .coming-soon-mark::before {
+    content: '';
+    position: absolute; inset: -8px;
+    border: 1px solid rgba(184,84,54,0.3);
+    border-radius: 50%;
+    animation: pulse-out 3s ease-in-out infinite;
+  }
+  .coming-soon-mark span {
+    font-family: var(--font-serif);
+    font-size: 1.8rem; font-weight: 300;
+    color: var(--rust);
+  }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  @keyframes pulse-out { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.1); } }
+
+  .coming-soon-hero .section-label { justify-content: center; margin-bottom: 1.5rem; }
+  .coming-soon-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300; line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--charcoal); margin-bottom: 1.5rem;
+  }
+  .coming-soon-hero h1 em { font-style: italic; color: var(--rust); }
+  .coming-soon-hero .subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.4rem; font-weight: 300; font-style: italic;
+    color: var(--mid); line-height: 1.6;
+    margin-bottom: 3rem; max-width: 56ch; margin-inline: auto;
+  }
+  .coming-soon-hero .cta-row {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .coming-soon-hero { padding: 7rem 1.5rem 4rem; min-height: 80vh; }
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-mount"></div>
+
+<section class="coming-soon-hero">
+  <div class="coming-soon-inner">
+    <div class="coming-soon-mark fade-up"><span>•</span></div>
+    <p class="section-label center fade-up delay-1">Page Under Construction</p>
+    <h1 class="fade-up delay-2">Julian's Meditation <em>Backstory</em></h1>
+    <p class="subtitle fade-up delay-3">Julian's meditation journey will be shared on this page soon. In the meantime, you can read about his background on the About page.</p>
+    <div class="cta-row fade-up delay-4">
+      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary" target="_blank">Schedule A Free Consultation</a>
+      <a href="contact.html" class="btn btn-outline">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section class="shared-contact-section" id="contact">
+  <div class="shared-contact-inner">
+    <div class="shared-contact-info scroll-reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2>I would love to help you build a life that brings you happiness and fulfillment.</h2>
+      <p>Anxiety, depression, unhealthy relationships, loneliness — this doesn't have to be your normal. You can make positive change.</p>
+      <p>Reach out to me today to schedule a free 15 minute consultation.</p>
+      <p>I hope to hear from you.</p>
+      <a href="tel:3034166116" class="phone-link">(303) 416-6116</a>
+      <br>
+      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary schedule-btn" target="_blank">Schedule A Free Consultation</a>
+    </div>
+    <div class="shared-contact-form scroll-reveal">
+      <h3>Contact</h3>
+      <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! Please connect this form to your email service.');">
+        <div class="shared-form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE INFO -->
+<section class="shared-practice-info">
+  <div class="shared-practice-info-inner scroll-reveal">
+    <p class="section-label center">About Me</p>
+    <h2>We are a therapy practice offering therapy and counseling services in Boulder &amp; online throughout Colorado.</h2>
+    <div class="provider-block">
+      <span class="provider-label">Licensed Provider</span>
+      <span class="provider-name">Julian Royce, MS, LPC</span>
+      <span class="provider-license">#76277 Licensed Professional Counselor</span>
+    </div>
+  </div>
+</section>
+
+
+<div id="footer-mount"></div>
+<script src="site.js"></script>
+</body>
+</html>
