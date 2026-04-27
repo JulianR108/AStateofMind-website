@@ -126,6 +126,10 @@
     background: var(--warm-white);
     text-align: center;
   }
+  .platforms-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
   .platforms-section .section-label {
     justify-content: center; margin-bottom: 1.5rem;
   }
@@ -264,6 +268,117 @@
     color: var(--mid); line-height: 1.55; margin: 0;
   }
 
+  /* Featured Episodes */
+  .featured-episodes {
+    background: var(--charcoal);
+    padding: 7rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-episodes::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(138,170,144,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .featured-episodes-header {
+    max-width: 1200px; margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .featured-episodes-header .section-label {
+    justify-content: center; color: var(--sage-light); margin-bottom: 1.5rem;
+  }
+  .featured-episodes-header .section-label::before { background: var(--sage-light); }
+  .featured-episodes-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; color: var(--cream);
+    line-height: 1.2;
+  }
+  .featured-episodes-header h2 em { font-style: italic; color: var(--sage-light); }
+  .episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .episode-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    text-decoration: none;
+    display: flex; flex-direction: column;
+    transition: transform 0.3s, background 0.3s, border-color 0.3s;
+  }
+  .episode-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(138,170,144,0.4);
+  }
+  .episode-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+    background: var(--charcoal);
+  }
+  .episode-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .episode-card:hover .episode-thumb img { transform: scale(1.04); }
+  .episode-thumb-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.25);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .episode-card:hover .episode-thumb-overlay { opacity: 1; }
+  .play-btn {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-btn svg { width: 20px; height: 20px; fill: var(--charcoal); margin-left: 3px; }
+  .episode-body {
+    padding: 1.5rem;
+    flex: 1; display: flex; flex-direction: column;
+  }
+  .episode-tag {
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 0.75rem;
+  }
+  .episode-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem; font-weight: 400;
+    color: var(--cream); line-height: 1.35;
+    margin-bottom: 0.75rem;
+  }
+  .episode-desc {
+    font-size: 0.83rem; font-weight: 300; line-height: 1.65;
+    color: rgba(245,240,232,0.55);
+    flex: 1;
+    margin-bottom: 1.2rem;
+  }
+  .episode-watch {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 500;
+    color: var(--sage-light);
+    transition: color 0.2s, gap 0.2s;
+  }
+  .episode-card:hover .episode-watch { color: var(--cream); gap: 0.75rem; }
+
+  @media (max-width: 1100px) {
+    .episodes-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   /* Photo gallery */
   .podcast-gallery {
     background: var(--cream);
@@ -342,6 +457,8 @@
     .about-show { padding: 4rem 1.5rem; }
     .topics-section { padding: 3rem 1.5rem; }
     .topics-grid { grid-template-columns: 1fr; }
+    .featured-episodes { padding: 4rem 1.5rem; }
+    .episodes-grid { grid-template-columns: 1fr; gap: 1rem; }
     .podcast-gallery { padding: 3rem 1.5rem; }
     .gallery-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -396,6 +513,7 @@
 </section>
 
 <section class="platforms-section">
+  <div class="platforms-inner">
   <p class="section-label center">Subscribe</p>
   <h3>Listen on your <em>favorite platform</em></h3>
   <p class="subtitle">New episodes drop regularly — never miss a conversation.</p>
@@ -428,6 +546,7 @@
       <span class="platform-name">YouTube</span>
     </a>
 
+  </div>
   </div>
 </section>
 
@@ -482,47 +601,120 @@
   </div>
 </section>
 
+<!-- FEATURED EPISODES -->
+<section class="featured-episodes scroll-reveal">
+  <div class="featured-episodes-header">
+    <p class="section-label center">Featured Episodes</p>
+    <h2>The podcast explores <em>neuroscience, Buddhist teachings &amp; meditation, psychology, and healing</em> — here are four conversations worth your time.</h2>
+  </div>
+
+  <div class="episodes-grid">
+
+    <a href="https://youtu.be/U-wEHcZg7wk" class="episode-card" target="_blank" rel="noopener">
+      <div class="episode-thumb">
+        <img src="https://img.youtube.com/vi/U-wEHcZg7wk/hqdefault.jpg" alt="Daniel Ingram — Unusually Hardcore Dharma" loading="lazy">
+        <div class="episode-thumb-overlay">
+          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-tag">Buddhist Teachings &amp; Meditation</div>
+        <div class="episode-title">Unusually Hardcore Dharma — with Daniel M. Ingram</div>
+        <div class="episode-desc">A far-ranging conversation on meditation, dark nights of the soul, and what it means to take the dharma seriously. Daniel is the author of <em>Mastering the Core Teachings of the Buddha.</em></div>
+        <span class="episode-watch">Watch Episode →</span>
+      </div>
+    </a>
+
+    <a href="https://youtu.be/G0TN9-99ov8" class="episode-card" target="_blank" rel="noopener">
+      <div class="episode-thumb">
+        <img src="https://img.youtube.com/vi/G0TN9-99ov8/hqdefault.jpg" alt="Trauma Healing with a therapist" loading="lazy">
+        <div class="episode-thumb-overlay">
+          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-tag">Psychology &amp; Healing</div>
+        <div class="episode-title">Healing Trauma — A Clinical Conversation</div>
+        <div class="episode-desc">Julian sits down with a therapist for a deep discussion on trauma, healing, and the clinical and contemplative approaches that create lasting change.</div>
+        <span class="episode-watch">Watch Episode →</span>
+      </div>
+    </a>
+
+    <a href="https://youtu.be/1sTu7IW79CI" class="episode-card" target="_blank" rel="noopener">
+      <div class="episode-thumb">
+        <img src="https://img.youtube.com/vi/1sTu7IW79CI/hqdefault.jpg" alt="Psychedelic-Assisted Therapy" loading="lazy">
+        <div class="episode-thumb-overlay">
+          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-tag">Psychedelic Therapy &amp; Healing</div>
+        <div class="episode-title">Psychedelic-Assisted Therapy — The Science &amp; The Practice</div>
+        <div class="episode-desc">Julian explores the frontier of psychedelic medicine — preparation, integration, and the inner work that makes the healing last.</div>
+        <span class="episode-watch">Watch Episode →</span>
+      </div>
+    </a>
+
+    <a href="https://youtu.be/TjItMMWWMrk" class="episode-card" target="_blank" rel="noopener">
+      <div class="episode-thumb">
+        <img src="https://img.youtube.com/vi/TjItMMWWMrk/hqdefault.jpg" alt="The Yoga of Bliss with Dr. Ben Joffe" loading="lazy">
+        <div class="episode-thumb-overlay">
+          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-tag">Tibetan Buddhism &amp; Neuroscience of Bliss</div>
+        <div class="episode-title">The Yoga of Bliss — with Dr. Ben Joffe</div>
+        <div class="episode-desc">Dr. Ben Joffe joins Julian to explore Karmamudra, sexuality in Tibetan Buddhism, and the neuroscience and transformative potential of tantric practice.</div>
+        <span class="episode-watch">Watch Episode →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
 <section class="podcast-gallery scroll-reveal">
   <div class="podcast-gallery-inner">
-    <p class="section-label center">From the Show</p>
-    <h2>Inside the <em>conversations</em></h2>
-    <p class="gallery-intro">A glimpse into the studio, the guests, and the journey of practice that shapes the questions explored on the podcast.</p>
+    <p class="section-label center">From the Road</p>
+    <h2>A few moments from the <em>journey</em></h2>
+    <p class="gallery-intro">Behind the mic, between takes, and out in the world — conversations that keep going after the record button stops.</p>
     <div class="gallery-grid">
       <div class="gallery-item tall">
-        <img src="images/julian-meditation-colorado-mountains.jpg" alt="Julian meditating in the Colorado high country">
-        <div class="gallery-caption">Sitting practice in the Colorado high country</div>
+        <img src="images/podcast-interview-studio.jpg" alt="Julian being interviewed in a professional studio — Sailor the dog at his feet">
+        <div class="gallery-caption">Julian being interviewed — Sailor keeping watch</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/podcast-live-blue-room.jpg" alt="Julian with a podcast guest in a blue studio">
+        <div class="gallery-caption">Post-recording with a guest</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/podcast-bts-studio.jpg" alt="Behind the scenes filming a podcast episode">
+        <div class="gallery-caption">Behind the scenes — lights, cameras, conversation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/podcast-psychedelic-book.jpg" alt="Julian holding the Psychedelic Therapy book with two guests at a church event">
+        <div class="gallery-caption">A psychedelic therapy event — holding the book</div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="images/podcast-table-recording.jpg" alt="Julian at the podcast table recording with a guest">
+        <div class="gallery-caption">In the studio</div>
       </div>
       <div class="gallery-item">
         <img src="images/podcast-studio-buddha.jpg" alt="The podcast studio with Buddha statue, microphones, and crystals">
-        <div class="gallery-caption">The studio — where each conversation begins</div>
+        <div class="gallery-caption">The home studio setup</div>
       </div>
       <div class="gallery-item">
-        <img src="images/podcast-guest-laptop.jpg" alt="Julian recording an episode with a guest">
-        <div class="gallery-caption">Recording a long-form conversation</div>
+        <img src="images/podcast-guest-headphones.jpg" alt="Julian and a guest recording with headphones">
+        <div class="gallery-caption">Deep in conversation</div>
       </div>
       <div class="gallery-item">
-        <img src="images/nepal-namche-himalayas.jpg" alt="The Himalayas above Namche Bazaar, Nepal">
-        <div class="gallery-caption">Above Namche Bazaar — Nepal, 2007</div>
-      </div>
-      <div class="gallery-item tall">
-        <img src="images/podcast-guest-headphones.jpg" alt="Julian and a guest in the podcast studio">
-        <div class="gallery-caption">In dialogue with a guest</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/julian-atitlan-hat.jpg" alt="Julian at Lake Atitlán, Guatemala">
-        <div class="gallery-caption">Lake Atitlán, Guatemala</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/podcast-guest-woman.jpg" alt="Julian interviewing a guest in the studio">
+        <img src="images/podcast-guest-woman.jpg" alt="Julian with a female guest in the studio">
         <div class="gallery-caption">Each guest brings their lineage</div>
       </div>
       <div class="gallery-item">
-        <img src="images/julian-costa-rica-volcano.jpg" alt="Julian with Arenal Volcano, Costa Rica">
-        <div class="gallery-caption">Arenal Volcano, Costa Rica</div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/julian-podcast-recording.jpg" alt="Julian recording a podcast episode">
-        <div class="gallery-caption">Behind the mic</div>
+        <img src="images/podcast-guest-laptop.jpg" alt="Julian and a guest recording">
+        <div class="gallery-caption">Recording a long-form conversation</div>
       </div>
     </div>
   </div>
