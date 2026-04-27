@@ -3,72 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Julian's Meditation Backstory — A State of Mind Therapy</title>
+<title>Julian's Meditation Journey — A State of Mind Therapy</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .coming-soon-hero {
-    min-height: 90vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 10rem 4rem 6rem;
-    position: relative; overflow: hidden;
-    background: var(--warm-white);
-    text-align: center;
+  .backstory-hero {
+    position: relative;
+    min-height: 70vh;
+    padding: 12rem 4rem 5rem;
+    overflow: hidden;
+    background: linear-gradient(160deg, #4d6e52 0%, #2b2b2b 100%);
   }
-  .coming-soon-hero::before {
+  .backstory-hero::before {
     content: '';
     position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 30% 30%, rgba(122,158,126,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 60% at 75% 65%, rgba(156,122,92,0.08) 0%, transparent 60%);
-    pointer-events: none;
+    background-image: url('images/nepal-namche-himalayas.jpg');
+    background-size: cover; background-position: center 35%;
+    opacity: 0.45;
   }
-  .coming-soon-inner { max-width: 720px; position: relative; z-index: 1; }
-  .coming-soon-mark {
-    width: 80px; height: 80px;
-    border: 1.5px solid var(--rust);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 2.5rem;
-    position: relative;
-    animation: pulse 3s ease-in-out infinite;
-  }
-  .coming-soon-mark::before {
+  .backstory-hero::after {
     content: '';
-    position: absolute; inset: -8px;
-    border: 1px solid rgba(184,84,54,0.3);
-    border-radius: 50%;
-    animation: pulse-out 3s ease-in-out infinite;
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(43,43,43,0.35) 0%, rgba(43,43,43,0.85) 100%);
   }
-  .coming-soon-mark span {
-    font-family: var(--font-serif);
-    font-size: 1.8rem; font-weight: 300;
-    color: var(--rust);
+  .backstory-hero-inner {
+    position: relative; z-index: 1;
+    max-width: 800px; margin: 0 auto;
+    text-align: center;
   }
-  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-  @keyframes pulse-out { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.1); } }
-
-  .coming-soon-hero .section-label { justify-content: center; margin-bottom: 1.5rem; }
-  .coming-soon-hero h1 {
+  .backstory-hero .section-label {
+    color: var(--sage-light); justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .backstory-hero .section-label::before { background: var(--sage-light); }
+  .backstory-hero h1 {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
     font-weight: 300; line-height: 1.1; letter-spacing: -0.02em;
-    color: var(--charcoal); margin-bottom: 1.5rem;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
   }
-  .coming-soon-hero h1 em { font-style: italic; color: var(--rust); }
-  .coming-soon-hero .subtitle {
+  .backstory-hero h1 em { font-style: italic; color: var(--sage-light); }
+  .backstory-hero .subtitle {
     font-family: var(--font-serif);
     font-size: 1.4rem; font-weight: 300; font-style: italic;
-    color: var(--mid); line-height: 1.6;
-    margin-bottom: 3rem; max-width: 56ch; margin-inline: auto;
+    color: rgba(245,240,232,0.85); line-height: 1.6;
+    max-width: 60ch; margin: 0 auto;
   }
-  .coming-soon-hero .cta-row {
-    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    margin-top: 2rem;
+
+  .backstory-article {
+    background: var(--warm-white);
+    padding: 6rem 4rem;
+  }
+  .backstory-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .backstory-inner h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    margin: 3.5rem 0 1.2rem;
+    line-height: 1.3;
+  }
+  .backstory-inner h2:first-child { margin-top: 0; }
+  .backstory-inner h2 em { font-style: italic; color: var(--rust); }
+  .backstory-inner p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.95;
+    color: var(--mid);
+    margin-bottom: 1.4rem;
+  }
+  .backstory-inner blockquote {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--charcoal);
+    border-left: 2px solid var(--rust);
+    padding: 0.4rem 0 0.4rem 2rem;
+    margin: 2.5rem 0;
+    line-height: 1.5;
+  }
+  .backstory-inner .section-divider {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--sage-dark);
+    letter-spacing: 0.4em;
+    font-size: 0.8rem;
+  }
+
+  .backstory-img {
+    margin: 3rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+  }
+  .backstory-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .backstory-img-caption {
+    background: var(--cream);
+    padding: 0.9rem 1.4rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--mid);
+    text-align: center;
   }
 
   @media (max-width: 900px) {
-    .coming-soon-hero { padding: 7rem 1.5rem 4rem; min-height: 80vh; }
+    .backstory-hero { padding: 7rem 1.5rem 3rem; min-height: auto; }
+    .backstory-article { padding: 3rem 1.5rem; }
+    .backstory-inner blockquote { padding-left: 1.2rem; font-size: 1.2rem; }
   }
 </style>
 </head>
@@ -76,18 +127,66 @@
 
 <div id="nav-mount"></div>
 
-<section class="coming-soon-hero">
-  <div class="coming-soon-inner">
-    <div class="coming-soon-mark fade-up"><span>•</span></div>
-    <p class="section-label center fade-up delay-1">Page Under Construction</p>
-    <h1 class="fade-up delay-2">Julian's Meditation <em>Backstory</em></h1>
-    <p class="subtitle fade-up delay-3">Julian's meditation journey will be shared on this page soon. In the meantime, you can read about his background on the About page.</p>
-    <div class="cta-row fade-up delay-4">
-      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary" target="_blank">Schedule A Free Consultation</a>
-      <a href="contact.html" class="btn btn-outline">Contact Me</a>
-    </div>
+<header class="backstory-hero">
+  <div class="backstory-hero-inner">
+    <p class="section-label fade-up">A State of Mind</p>
+    <h1 class="fade-up delay-1">Julian's <em>Meditation Journey</em></h1>
+    <p class="subtitle fade-up delay-2">A path of study, travel, and contemplative practice — woven into the work I bring to therapy.</p>
   </div>
-</section>
+</header>
+
+<article class="backstory-article scroll-reveal">
+  <div class="backstory-inner">
+
+    <h2>How It <em>Began</em></h2>
+    <p>When I was 18 years old, my best friend Ian told me I could choose any book from the bookstore where he worked. I still remember wandering through the aisles — Travel, History, Fiction — until I reached the Spirituality section and felt unexpectedly drawn to the books on Buddhism.</p>
+    <p>One title seemed to leap off the shelf: <em>Awaken the Buddha Within</em> by Lama Surya Das.</p>
+    <p>Raised without religion, I hadn't expected to become interested in meditation. But something in me recognized that this path might hold answers to suffering, meaning, and the deeper possibilities of being human.</p>
+    <p>That moment began a lifelong journey.</p>
+
+    <div class="section-divider">— • —</div>
+
+    <h2>Study, Travel & <em>Practice</em></h2>
+    <p>I immersed myself in the world's spiritual and philosophical traditions, and my curiosity eventually became formal study. I earned a degree in Anthropology and Religious Studies, exploring how culture, consciousness, and wisdom traditions shape human life.</p>
+    <p>Books opened the door — but direct experience changed everything.</p>
+    <p>In 2005, while in Bodh Gaya, I met Chokyi Nyima Rinpoche. Encountering a living meditation master rooted in an unbroken contemplative lineage was profoundly impactful. It showed me that meditation was not just philosophy or theory — it was something alive, embodied, and transmissible.</p>
+    <p>After college, I traveled to Nepal to deepen my study and practice. I arrived without a clear career plan, but with a sincere wish to grow, to understand the mind, and to help others in a meaningful way.</p>
+
+    <div class="backstory-img">
+      <img src="images/nepal-namche-himalayas.jpg" alt="The Himalayas above Namche Bazaar, Nepal — 2007">
+      <div class="backstory-img-caption">Above Namche Bazaar — Nepal, 2007</div>
+    </div>
+
+    <div class="section-divider">— • —</div>
+
+    <h2>A Broad Path of <em>Training</em></h2>
+    <p>Over the years, I've studied with Tibetan Buddhist, Zen, and contemporary teachers, integrating ancient contemplative wisdom with modern psychology and neuroscience.</p>
+    <p>My path has included retreats and study with teachers such as Yongey Mingyur Rinpoche, Joe Dispenza, Sam Harris, and John Churchill.</p>
+    <p>This diversity of training allows me to meet people where they are — whether they are spiritually curious, psychologically minded, skeptical, or deeply committed to inner growth.</p>
+
+    <div class="section-divider">— • —</div>
+
+    <h2>What Meditation Has <em>Taught Me</em></h2>
+    <p>Meditation can be transformative — but it is not magic.</p>
+    <p>It does not replace therapy, healthy relationships, embodiment, emotional honesty, or the practical work of healing and growing up.</p>
+    <p>What it can offer is profound support: greater awareness, steadiness, compassion, freedom from old patterns, and a deeper relationship with life itself.</p>
+
+    <blockquote>Even in the middle of stress, pain, or confusion, each moment contains the possibility of more clarity & greater presence.</blockquote>
+
+    <div class="backstory-img">
+      <img src="images/julian-meditation-colorado-mountains.jpg" alt="Julian sitting in meditation in the Colorado mountains">
+      <div class="backstory-img-caption">Sitting practice in the Colorado high country</div>
+    </div>
+
+    <div class="section-divider">— • —</div>
+
+    <h2>How I <em>Teach Today</em></h2>
+    <p>Today I teach meditation in a grounded, trauma-informed, psychologically mature way.</p>
+    <p>My approach blends contemplative depth with real-world practicality. I help people use meditation not as an escape from life, but as a way to meet life more fully — with wisdom, courage, and compassion.</p>
+    <p>Whether you are seeking healing, awakening, emotional balance, or a deeper sense of meaning, meditation can become a powerful ally on the path.</p>
+
+  </div>
+</article>
 
 
 <!-- CONTACT SECTION -->
@@ -135,7 +234,7 @@
     <h2>We are a therapy practice offering therapy and counseling services in Boulder &amp; online throughout Colorado.</h2>
     <div class="provider-block">
       <span class="provider-label">Licensed Provider</span>
-      <span class="provider-name">Julian Royce, MS, LPC</span>
+      <span class="provider-name">Julian Royce, MA, LPC</span>
       <span class="provider-license">#76277 Licensed Professional Counselor</span>
     </div>
   </div>
