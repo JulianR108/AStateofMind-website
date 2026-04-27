@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A State of Mind Therapy — Boulder, CO</title>
+<title>Trauma Therapy &amp; Depth Counseling in Boulder, CO — A State of Mind Therapy</title>
+<meta name="description" content="Depth-oriented trauma therapy in Boulder, Colorado. Julian Royce, MA, LPC — licensed psychotherapist, trauma-informed clinician, and meditation teacher offering EMDR-informed, somatic, and consciousness-oriented therapy. Online across Colorado.">
+<meta name="keywords" content="trauma therapy boulder, anxiety therapy boulder, meditation therapy colorado, psychedelic integration colorado, EMDR therapy colorado, trauma-informed therapy, depth psychology boulder, somatic therapy boulder">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -32,14 +34,27 @@
   }
   .hero h1 {
     font-family: var(--font-serif);
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 300; line-height: 1.15; letter-spacing: -0.01em;
-    color: var(--charcoal); margin-bottom: 1.5rem;
+    font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+    font-weight: 300; line-height: 1.05; letter-spacing: -0.015em;
+    color: var(--charcoal); margin-bottom: 1.8rem;
   }
   .hero h1 em { font-style: italic; color: var(--rust); }
+  .hero-line {
+    display: block;
+  }
+  .hero-line:not(:last-child) {
+    margin-bottom: 0.15rem;
+  }
   .hero-sub {
-    font-size: 1.05rem; font-weight: 400; line-height: 1.8;
-    color: var(--charcoal); max-width: 38ch; margin-bottom: 2.5rem;
+    font-size: 1.05rem; font-weight: 400; line-height: 1.7;
+    color: var(--charcoal); max-width: 38ch; margin-bottom: 1rem;
+  }
+  .hero-tagline {
+    font-family: var(--font-serif);
+    font-size: 1.05rem; font-weight: 300; font-style: italic;
+    color: var(--mid); max-width: 38ch; margin-bottom: 2.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--sage);
   }
   .hero-visual { position: relative; height: 70vh; min-height: 500px; }
   .hero-img-frame {
@@ -356,6 +371,142 @@
   }
   .vision .cta-group { display: flex; gap: 1rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
 
+  /* Intro / positioning section */
+  .intro-section {
+    padding: 7rem 4rem;
+    background: var(--warm-white);
+    position: relative;
+  }
+  .intro-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 30% 40%, rgba(184,84,54,0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 75% 70%, rgba(122,158,126,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .intro-inner {
+    max-width: 820px; margin: 0 auto;
+    position: relative; z-index: 1;
+    text-align: center;
+  }
+  .intro-inner .section-label { justify-content: center; margin-bottom: 2rem; }
+  .intro-inner h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+    font-weight: 300; line-height: 1.35;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+  }
+  .intro-inner h2 em { font-style: italic; color: var(--rust); }
+  .intro-inner p {
+    font-size: 1.08rem; font-weight: 300; line-height: 1.95;
+    color: var(--mid);
+    max-width: 64ch; margin: 0 auto 1.4rem;
+  }
+  .intro-inner p.intro-lead {
+    font-family: var(--font-serif);
+    font-size: 1.35rem; font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* Why I'm Different section */
+  .why-different {
+    padding: 7rem 4rem;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-different::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 40% 50% at 15% 20%, rgba(184,84,54,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 85% 80%, rgba(79,115,85,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .why-different-header {
+    max-width: 880px; margin: 0 auto 4.5rem;
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+  .why-different-header .section-label { justify-content: center; margin-bottom: 1.5rem; }
+  .why-different-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-weight: 300; line-height: 1.25;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+  .why-different-header h2 em { font-style: italic; color: var(--rust); }
+  .why-different-header p {
+    font-family: var(--font-serif);
+    font-size: 1.2rem; font-style: italic; font-weight: 300;
+    color: var(--mid);
+    line-height: 1.6;
+    max-width: 60ch; margin: 0 auto;
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .pillar-card {
+    background: var(--warm-white);
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(176,148,118,0.18);
+    border-radius: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+  }
+  .pillar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    border-color: rgba(184,84,54,0.35);
+  }
+  .pillar-num {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--rust);
+    margin-bottom: 1.4rem;
+  }
+  .pillar-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .pillar-card h3 em {
+    font-style: italic; color: var(--sage-dark);
+    font-weight: 300;
+  }
+  .pillar-card p {
+    font-size: 0.92rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mid);
+    margin: 0;
+  }
+  .why-different-tagline {
+    max-width: 720px; margin: 4.5rem auto 0;
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+  .why-different-tagline p {
+    font-family: var(--font-serif);
+    font-size: 1.25rem; font-style: italic; font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
   .specialties {
     background: var(--charcoal); padding: 7rem 4rem;
   }
@@ -499,6 +650,11 @@
     .hero-img-frame { left: 0; }
     .about-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
     .testimonials, .specialties, .vision, .practice-info { padding: 4rem 1.5rem; }
+    .intro-section, .why-different { padding: 4rem 1.5rem; }
+    .pillars-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .pillar-card { padding: 2rem 1.5rem; }
+    .why-different-header { margin-bottom: 3rem; }
+    .why-different-tagline { margin-top: 3rem; }
     .testimonials-grid, .specialties-grid { grid-template-columns: 1fr; }
     .about-img { height: 400px; }
     .contact-section { padding: 4rem 1.5rem; }
@@ -516,10 +672,13 @@
   <div class="hero-text">
     <p class="hero-eyebrow fade-up">Therapy in Boulder, CO</p>
     <h1 class="fade-up delay-1">
-      You're ready for <em>something to change.</em> I'm here to help you get there.
+      <span class="hero-line">Heal <em>Trauma.</em></span>
+      <span class="hero-line">Awaken <em>Consciousness.</em></span>
+      <span class="hero-line">Embody <em>Freedom.</em></span>
     </h1>
-    <p class="hero-sub fade-up delay-2">Depth-oriented therapy for clarity, confidence, and aligned action.</p>
-    <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary fade-up delay-3" target="_blank">Schedule A Free Consultation</a>
+    <p class="hero-sub fade-up delay-2">Depth-oriented therapy for healing, clarity, and meaningful transformation.</p>
+    <p class="hero-tagline fade-up delay-2">Therapy for thoughtful people ready for real change.</p>
+    <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary fade-up delay-3" target="_blank">Book A Free Consultation</a>
   </div>
   <div class="hero-visual fade-up delay-2">
     <div class="hero-img-frame">
@@ -532,29 +691,96 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-section scroll-reveal" id="about">
-  <div class="about-img">
-    <div class="about-img-main">
-      <img src="images/julian-portrait-doorway-1.jpg" alt="Julian Royce in his Boulder office">
-    </div>
-    <div class="about-img-accent">
-      <div class="about-img-accent-inner">
-        <div class="num">10+</div>
-        <div class="label">Years of<br>Practice</div>
-      </div>
-    </div>
+<!-- INTRO / POSITIONING -->
+<section class="intro-section scroll-reveal">
+  <div class="intro-inner">
+    <p class="section-label center">Why You're Here</p>
+    <h2>Therapy that goes <em>beneath the surface.</em></h2>
+    <p class="intro-lead">Life can look successful on the outside while feeling disconnected on the inside.</p>
+    <p>Many people struggle with anxiety, trauma, relationship pain, or the sense that something deeper is missing. I help clients heal old wounds, reconnect to themselves, and create lives that feel meaningful, loving, and free.</p>
+    <p>Together we work to heal trauma, resolve inner conflict, deepen relationships, and access greater confidence, meaning, and freedom.</p>
+    <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary" target="_blank" style="margin-top: 1.5rem;">Book A Free Consultation</a>
   </div>
-  <div class="about-text">
-    <p class="section-label">Meet Your Therapist</p>
-    <h2>Julian Royce</h2>
-    <p class="credentials">MA, LPC</p>
-    <p>Despite living in the wealthiest society in recorded history, many of us today are beset by anxiety, depression and lack of meaning and connection.</p>
-    <p>I became a trauma informed therapist, transformational coach &amp; meditation teacher to help people to heal and to rediscover their connection with the greater world and to live the lives they are meant to be living during our brief time on this planet.</p>
-    <p>Having seen the healing and transformative power of therapy, in helping people heal from trauma, build healthy relationships, ease anxiety, and build a life that brings them joy, I know that this is possible for you as well.</p>
-    <p>Schedule a free consultation by clicking the button below, and we can see how I might be able to help. I hope I get the chance to meet you!</p>
-    <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
-    <a href="about.html" class="btn btn-outline">More About Me</a>
+</section>
+
+<!-- WHY I'M DIFFERENT -->
+<section class="why-different scroll-reveal">
+  <div class="why-different-header">
+    <p class="section-label center">A Different Kind of Therapist</p>
+    <h2>A rare hybrid of clinical depth and <em>contemplative wisdom.</em></h2>
+    <p>Most therapists offer clinical skill. Most spiritual teachers offer contemplative depth. Few offer both — held inside an ethical, trauma-informed clinical container.</p>
+  </div>
+
+  <div class="pillars-grid">
+
+    <div class="pillar-card scroll-reveal">
+      <div class="pillar-num">— 01 —</div>
+      <h3>Licensed <em>Psychotherapist</em></h3>
+      <p>MA, LPC #76277. Clinically trained, ethically grounded, and informed by evidence-based modalities — held inside a real therapeutic container.</p>
+    </div>
+
+    <div class="pillar-card scroll-reveal">
+      <div class="pillar-num">— 02 —</div>
+      <h3>Trauma-Informed <em>Clinician</em></h3>
+      <p>Somatic, IFS (parts work), and EMDR-informed approaches to deep trauma healing — meeting the nervous system with care, not force.</p>
+    </div>
+
+    <div class="pillar-card scroll-reveal">
+      <div class="pillar-num">— 03 —</div>
+      <h3>Seasoned <em>Meditation Practitioner</em></h3>
+      <p>14+ years of personal practice. Studied with Tibetan Buddhist, Zen, and contemporary teachers including Yongey Mingyur Rinpoche, Sam Harris, and John Churchill.</p>
+    </div>
+
+    <div class="pillar-card scroll-reveal">
+      <div class="pillar-num">— 04 —</div>
+      <h3>Consciousness-Oriented <em>Guide</em></h3>
+      <p>Integrative support for transformational experiences — including psychedelic preparation and integration — grounded in safety, ceremony, and sound psychology.</p>
+    </div>
+
+    <div class="pillar-card scroll-reveal">
+      <div class="pillar-num">— 05 —</div>
+      <h3>Podcast Host & <em>Thought Leader</em></h3>
+      <p>Host of <em>A State of Mind Podcast</em> — long-form conversations with therapists, meditation teachers, and researchers at the leading edge of psychology and spirituality.</p>
+    </div>
+
+    <div class="pillar-card scroll-reveal">
+      <div class="pillar-num">— 06 —</div>
+      <h3>Premium <em>Transformational Practitioner</em></h3>
+      <p>Work that goes beyond symptom management — toward lasting change in who you are, how you relate, and the life you create.</p>
+    </div>
+
+  </div>
+
+  <div class="why-different-tagline scroll-reveal">
+    <p>"The quality of soulfulness and depth with which Julian operates is profound." — Kevin McKeag, client</p>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="specialties" id="specialties">
+  <div class="specialties-header">
+    <p class="section-label">Areas of Focus</p>
+    <h2>Specialties</h2>
+  </div>
+  <div class="specialties-grid">
+    <a href="trauma.html" class="specialty-card scroll-reveal">
+      <div class="specialty-icon">🌿</div>
+      <h3>Trauma</h3>
+      <p>Healing from past wounds using evidence-based, compassionate approaches that restore safety and wholeness.</p>
+      <span class="specialty-arrow">↗</span>
+    </a>
+    <a href="relationships.html" class="specialty-card scroll-reveal">
+      <div class="specialty-icon">🤝</div>
+      <h3>Relationships</h3>
+      <p>Building the skills and awareness needed to create deeper, more fulfilling connections with others and yourself.</p>
+      <span class="specialty-arrow">↗</span>
+    </a>
+    <a href="psychedelic-therapy.html" class="specialty-card scroll-reveal">
+      <div class="specialty-icon">✨</div>
+      <h3>Psychedelic Therapy</h3>
+      <p>Integrative support for psychedelic experiences, including psilocybin-assisted and ketamine-assisted therapy.</p>
+      <span class="specialty-arrow">↗</span>
+    </a>
   </div>
 </section>
 
@@ -627,45 +853,28 @@
 
 </section>
 
-<!-- VISION -->
-<section class="vision">
-  <div class="vision-inner scroll-reveal">
-    <p class="section-label center">What's Possible For You</p>
-    <h2>You can find <em>inner harmony</em></h2>
-    <p>You can begin to create a life free from repeating your personal, familial &amp; collective traumas;</p>
-    <p>A life filled with fulfilling relationships, access to your inner wisdom, cultivating genuine happiness &amp; giving your gifts to this world that so desperately needs them.</p>
-    <p>This is possible for you, and I would love to walk alongside as you make this a reality.</p>
-    <div class="cta-group">
-      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary" target="_blank">Schedule A Free Consultation</a>
+<!-- ABOUT JULIAN -->
+<section class="about-section scroll-reveal" id="about">
+  <div class="about-img">
+    <div class="about-img-main">
+      <img src="images/julian-portrait-doorway-1.jpg" alt="Julian Royce in his Boulder office">
+    </div>
+    <div class="about-img-accent">
+      <div class="about-img-accent-inner">
+        <div class="num">14+</div>
+        <div class="label">Years<br>Helping People</div>
+      </div>
     </div>
   </div>
-</section>
-
-<!-- SPECIALTIES -->
-<section class="specialties" id="specialties">
-  <div class="specialties-header">
-    <p class="section-label">Areas of Focus</p>
-    <h2>Specialties</h2>
-  </div>
-  <div class="specialties-grid">
-    <a href="trauma.html" class="specialty-card scroll-reveal">
-      <div class="specialty-icon">🌿</div>
-      <h3>Trauma</h3>
-      <p>Healing from past wounds using evidence-based, compassionate approaches that restore safety and wholeness.</p>
-      <span class="specialty-arrow">↗</span>
-    </a>
-    <a href="relationships.html" class="specialty-card scroll-reveal">
-      <div class="specialty-icon">🤝</div>
-      <h3>Relationships</h3>
-      <p>Building the skills and awareness needed to create deeper, more fulfilling connections with others and yourself.</p>
-      <span class="specialty-arrow">↗</span>
-    </a>
-    <a href="psychedelic-therapy.html" class="specialty-card scroll-reveal">
-      <div class="specialty-icon">✨</div>
-      <h3>Psychedelic Therapy</h3>
-      <p>Integrative support for psychedelic experiences, including psilocybin-assisted and ketamine-assisted therapy.</p>
-      <span class="specialty-arrow">↗</span>
-    </a>
+  <div class="about-text">
+    <p class="section-label">Meet Your Therapist</p>
+    <h2>Julian Royce</h2>
+    <p class="credentials">MA, LPC</p>
+    <p>I became a trauma-informed therapist, transformational coach, and meditation teacher to help people heal — and to rediscover their connection with themselves, their relationships, and the greater world.</p>
+    <p>Having seen the transformative power of this work — helping people heal from trauma, build healthy relationships, ease anxiety, and build a life that brings them genuine joy — I know it's possible for you as well.</p>
+    <p>Schedule a free consultation by clicking below, and we can see how I might be able to help. I hope I get the chance to meet you.</p>
+    <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    <a href="about.html" class="btn btn-outline">More About Me</a>
   </div>
 </section>
 
