@@ -3,71 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A State of Mind Podcast — A State of Mind Therapy</title>
+<title>A State of Mind Podcast — Long-form Conversations on Psychology, Spirituality &amp; Healing</title>
+<meta name="description" content="A State of Mind Podcast — long-form conversations with therapists, meditation teachers, and researchers on psychology, contemplative practice, and what it means to live a meaningful life. Hosted by Julian Royce, MA, LPC.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
   .podcast-hero {
     position: relative;
-    min-height: 60vh;
-    padding: 12rem 4rem 5rem;
+    padding: 11rem 4rem 4.5rem;
     overflow: hidden;
     background: linear-gradient(160deg, #4d6e52 0%, #2b2b2b 100%);
   }
   .podcast-hero::before {
     content: '';
     position: absolute; inset: 0;
-    background-image: url('images/julian-podcast.jpg');
+    background-image: url('images/podcast-studio-buddha.jpg');
     background-size: cover; background-position: center;
-    opacity: 0.35;
-    filter: grayscale(0.2);
+    opacity: 0.45;
+    filter: grayscale(0.15);
   }
   .podcast-hero::after {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(43,43,43,0.4) 0%, rgba(43,43,43,0.85) 100%);
+    background: linear-gradient(180deg, rgba(43,43,43,0.45) 0%, rgba(43,43,43,0.88) 100%);
   }
   .podcast-hero-inner {
     position: relative; z-index: 1;
-    max-width: 800px; margin: 0 auto;
+    max-width: 880px; margin: 0 auto;
     text-align: center;
   }
   .podcast-hero .section-label {
     color: var(--sage-light); justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
   }
   .podcast-hero .section-label::before { background: var(--sage-light); }
   .podcast-hero h1 {
     font-family: var(--font-serif);
-    font-size: clamp(2.8rem, 6vw, 4.8rem);
-    font-weight: 300; line-height: 1.1; letter-spacing: -0.02em;
+    font-size: clamp(3rem, 7vw, 5.6rem);
+    font-weight: 300; line-height: 1.05; letter-spacing: -0.02em;
     color: var(--cream);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
   }
   .podcast-hero h1 em { font-style: italic; color: var(--sage-light); }
   .podcast-hero .subtitle {
     font-family: var(--font-serif);
-    font-size: 1.4rem; font-weight: 300; font-style: italic;
-    color: rgba(245,240,232,0.85); line-height: 1.6;
-    max-width: 60ch; margin: 0 auto;
+    font-size: 1.45rem; font-weight: 300; font-style: italic;
+    color: rgba(245,240,232,0.9); line-height: 1.6;
+    max-width: 60ch; margin: 0 auto 2.5rem;
+  }
+  .podcast-hero-meta {
+    display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(245,240,232,0.18);
+  }
+  .podcast-hero-meta-item {
+    display: flex; flex-direction: column; align-items: center;
+    color: rgba(245,240,232,0.75);
+  }
+  .podcast-hero-meta-item .label {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sage-light); margin-bottom: 0.4rem;
+  }
+  .podcast-hero-meta-item .value {
+    font-family: var(--font-serif);
+    font-size: 1.05rem; font-style: italic;
   }
 
   .episode-section {
-    padding: 6rem 4rem;
+    padding: 7rem 4rem 5rem;
     background: var(--warm-white);
+    position: relative;
+  }
+  .episode-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(122,158,126,0.05) 0%, transparent 70%);
+    pointer-events: none;
   }
   .episode-inner {
-    max-width: 900px; margin: 0 auto;
+    max-width: 980px; margin: 0 auto;
     text-align: center;
+    position: relative; z-index: 1;
+  }
+  .episode-inner .section-label {
+    justify-content: center; margin-bottom: 1.5rem;
   }
   .episode-section h2 {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
     font-weight: 300; color: var(--charcoal);
-    margin-bottom: 2.5rem;
-    line-height: 1.3;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
   }
-  .episode-section h2 em { font-style: italic; color: var(--sage-dark); }
+  .episode-section h2 em { font-style: italic; color: var(--rust); }
+  .episode-section .episode-intro {
+    font-family: var(--font-serif);
+    font-size: 1.2rem; font-style: italic; color: var(--mid);
+    margin-bottom: 3rem;
+    max-width: 56ch; margin-left: auto; margin-right: auto;
+  }
 
   .video-frame {
     position: relative;
@@ -76,7 +111,7 @@
     height: 0;
     overflow: hidden;
     border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.18);
     background: var(--charcoal);
   }
   .video-frame iframe {
@@ -91,12 +126,20 @@
     background: var(--warm-white);
     text-align: center;
   }
+  .platforms-section .section-label {
+    justify-content: center; margin-bottom: 1.5rem;
+  }
   .platforms-section h3 {
     font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
     font-weight: 300; color: var(--charcoal);
-    margin-bottom: 2rem;
-    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+  .platforms-section h3 em { font-style: italic; color: var(--rust); }
+  .platforms-section .subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.1rem; font-style: italic; color: var(--mid);
+    margin-bottom: 3rem;
   }
   .platforms-grid {
     display: flex; justify-content: center; align-items: center;
@@ -110,62 +153,143 @@
   }
   .platform-link:hover { transform: translateY(-4px); color: var(--charcoal); }
   .platform-icon {
-    width: 80px; height: 80px;
+    width: 84px; height: 84px;
     border-radius: 22%;
     display: flex; align-items: center; justify-content: center;
     color: white;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.14);
     transition: box-shadow 0.3s, transform 0.3s;
   }
   .platform-link:hover .platform-icon {
-    box-shadow: 0 14px 36px rgba(0,0,0,0.18);
-    transform: scale(1.05);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.20);
+    transform: scale(1.06);
   }
   .platform-icon.apple { background: linear-gradient(135deg, #b052ff 0%, #7d2ae8 100%); }
   .platform-icon.spotify { background: #1db954; }
   .platform-icon.youtube { background: #ff0000; }
   .platform-link span.platform-name {
-    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
     font-weight: 400;
   }
 
   .about-show {
     background: var(--cream);
-    padding: 6rem 4rem;
+    padding: 7rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-show::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 20% 30%, rgba(184,84,54,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(79,115,85,0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
   .about-show-inner {
     max-width: 800px; margin: 0 auto;
     text-align: center;
+    position: relative; z-index: 1;
   }
   .about-show .section-label { justify-content: center; }
   .about-show h2 {
     font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
     font-weight: 300; color: var(--charcoal);
-    margin-bottom: 2rem; line-height: 1.4;
+    margin-bottom: 2rem; line-height: 1.3;
   }
+  .about-show h2 em { font-style: italic; color: var(--rust); }
   .about-show p {
-    font-size: 1.02rem; font-weight: 300; line-height: 1.95;
+    font-size: 1.05rem; font-weight: 300; line-height: 1.95;
     color: var(--mid); margin-bottom: 1.4rem;
+  }
+  .about-show .pullquote {
+    font-family: var(--font-serif);
+    font-size: 1.4rem; font-style: italic; font-weight: 300;
+    color: var(--charcoal);
+    border-left: 2px solid var(--rust);
+    padding-left: 1.6rem;
+    margin: 2.5rem auto 0;
+    max-width: 50ch;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  /* Topics covered */
+  .topics-section {
+    padding: 6rem 4rem;
+    background: var(--warm-white);
+  }
+  .topics-inner {
+    max-width: 1100px; margin: 0 auto;
+    text-align: center;
+  }
+  .topics-section .section-label { justify-content: center; }
+  .topics-section h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    font-weight: 300; color: var(--charcoal);
+    margin-bottom: 1rem; line-height: 1.3;
+  }
+  .topics-section h2 em { font-style: italic; color: var(--sage-dark); }
+  .topics-section .topics-intro {
+    font-family: var(--font-serif);
+    font-size: 1.15rem; font-style: italic; color: var(--mid);
+    margin-bottom: 3.5rem;
+    max-width: 56ch; margin-left: auto; margin-right: auto;
+  }
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: left;
+  }
+  .topic-tag {
+    padding: 1.5rem 1.6rem;
+    background: var(--cream);
+    border-left: 2px solid var(--sage);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .topic-tag:hover {
+    border-left-color: var(--rust);
+    transform: translateX(3px);
+  }
+  .topic-tag h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem; font-weight: 400;
+    color: var(--charcoal); margin-bottom: 0.4rem;
+  }
+  .topic-tag p {
+    font-size: 0.86rem; font-weight: 300;
+    color: var(--mid); line-height: 1.55; margin: 0;
   }
 
   /* Photo gallery */
   .podcast-gallery {
-    background: var(--warm-white);
-    padding: 6rem 4rem;
+    background: var(--cream);
+    padding: 7rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .podcast-gallery::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(184,84,54,0.04) 0%, transparent 70%);
+    pointer-events: none;
   }
   .podcast-gallery-inner {
     max-width: 1200px; margin: 0 auto;
     text-align: center;
+    position: relative; z-index: 1;
   }
   .podcast-gallery .section-label { justify-content: center; }
   .podcast-gallery h2 {
     font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
     font-weight: 300; color: var(--charcoal);
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; line-height: 1.3;
   }
-  .podcast-gallery h2 em { font-style: italic; color: var(--sage-dark); }
+  .podcast-gallery h2 em { font-style: italic; color: var(--rust); }
   .podcast-gallery .gallery-intro {
     font-family: var(--font-serif);
     font-size: 1.15rem; font-style: italic; color: var(--mid);
@@ -196,7 +320,7 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     padding: 2rem 1.5rem 1.2rem;
-    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.75) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.78) 100%);
     color: var(--cream);
     font-family: var(--font-serif);
     font-style: italic;
@@ -209,12 +333,15 @@
 
   @media (max-width: 900px) {
     .podcast-hero { padding: 7rem 1.5rem 3rem; min-height: auto; }
+    .podcast-hero-meta { gap: 1.5rem; padding-top: 1.5rem; margin-top: 1.8rem; }
     .episode-section { padding: 3rem 1.5rem; }
     .platforms-section { padding: 3rem 1.5rem 4rem; }
     .platforms-grid { gap: 2rem; }
     .platform-icon { width: 64px; height: 64px; }
     .platform-icon svg { width: 36px; height: 36px; }
     .about-show { padding: 4rem 1.5rem; }
+    .topics-section { padding: 3rem 1.5rem; }
+    .topics-grid { grid-template-columns: 1fr; }
     .podcast-gallery { padding: 3rem 1.5rem; }
     .gallery-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -231,19 +358,36 @@
 
 <header class="podcast-hero">
   <div class="podcast-hero-inner">
-    <p class="section-label fade-up">A State of Mind</p>
-    <h1 class="fade-up delay-1"><em>Podcast</em></h1>
-    <p class="subtitle fade-up delay-2">Conversations about psychology, contemplative practice, healing, and what it means to live a meaningful life.</p>
+    <p class="section-label fade-up">A State of Mind Podcast</p>
+    <h1 class="fade-up delay-1">Conversations <em>that go deep.</em></h1>
+    <p class="subtitle fade-up delay-2">Long-form dialogues with therapists, meditation teachers, researchers, and seekers — on psychology, contemplative practice, and what it means to live a meaningful life.</p>
+
+    <div class="podcast-hero-meta fade-up delay-3">
+      <div class="podcast-hero-meta-item">
+        <span class="label">Host</span>
+        <span class="value">Julian Royce, MA, LPC</span>
+      </div>
+      <div class="podcast-hero-meta-item">
+        <span class="label">Format</span>
+        <span class="value">Long-form interview</span>
+      </div>
+      <div class="podcast-hero-meta-item">
+        <span class="label">Listen</span>
+        <span class="value">Apple · Spotify · YouTube</span>
+      </div>
+    </div>
   </div>
 </header>
 
 <section class="episode-section scroll-reveal">
   <div class="episode-inner">
-    <h2>View My Latest <em>Podcast Episode</em> Here!</h2>
+    <p class="section-label center">Latest Episodes</p>
+    <h2>Watch the <em>most recent conversations</em></h2>
+    <p class="episode-intro">Browse the playlist below — or subscribe wherever you listen.</p>
     <div class="video-frame">
       <iframe
         src="https://www.youtube.com/embed/videoseries?list=PLW03CSmiv3xuVR4-hoV1Fje8oevL8uMRW"
-        title="A State of Mind Podcast — Latest Episode"
+        title="A State of Mind Podcast — Latest Episodes"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
@@ -252,7 +396,9 @@
 </section>
 
 <section class="platforms-section">
-  <h3>Also Support Us On…</h3>
+  <p class="section-label center">Subscribe</p>
+  <h3>Listen on your <em>favorite platform</em></h3>
+  <p class="subtitle">New episodes drop regularly — never miss a conversation.</p>
   <div class="platforms-grid scroll-reveal">
 
     <a href="https://podcasts.apple.com/" class="platform-link" target="_blank" rel="noopener">
@@ -288,9 +434,51 @@
 <section class="about-show scroll-reveal">
   <div class="about-show-inner">
     <p class="section-label center">About the Show</p>
-    <h2>A space for the conversations that matter.</h2>
+    <h2>A space for the <em>conversations that matter.</em></h2>
     <p>A State of Mind is a long-form interview podcast hosted by Julian Royce. Each episode features in-depth conversations with therapists, meditation teachers, researchers, and others doing meaningful work at the intersection of psychology, spirituality, and human flourishing.</p>
-    <p>The conversations are unhurried, curious, and aimed at depth rather than soundbites. Subscribe on your favorite platform and join us for the journey.</p>
+    <p>The conversations are unhurried, curious, and aimed at depth rather than soundbites. No clickbait. No quick takes. Just thoughtful people exploring difficult questions together.</p>
+    <p class="pullquote">"What does it mean to live well? To heal? To wake up? To love and be loved? These are the questions worth our attention."</p>
+  </div>
+</section>
+
+<section class="topics-section scroll-reveal">
+  <div class="topics-inner">
+    <p class="section-label center">What We Talk About</p>
+    <h2>Themes &amp; <em>recurring threads</em></h2>
+    <p class="topics-intro">The conversations roam, but certain questions keep returning.</p>
+    <div class="topics-grid">
+
+      <div class="topic-tag">
+        <h3>Trauma &amp; Healing</h3>
+        <p>How trauma shapes the nervous system — and what genuine healing looks like.</p>
+      </div>
+
+      <div class="topic-tag">
+        <h3>Meditation &amp; Awakening</h3>
+        <p>Contemplative practice from a clear-eyed, modern, embodied perspective.</p>
+      </div>
+
+      <div class="topic-tag">
+        <h3>Psychedelics &amp; Integration</h3>
+        <p>The promise, the pitfalls, and the work that makes change last.</p>
+      </div>
+
+      <div class="topic-tag">
+        <h3>Relationships &amp; Attachment</h3>
+        <p>The shape of intimacy, repair, and what makes love sustainable.</p>
+      </div>
+
+      <div class="topic-tag">
+        <h3>Psychology &amp; the Self</h3>
+        <p>Parts work, the unconscious, and the architecture of the inner life.</p>
+      </div>
+
+      <div class="topic-tag">
+        <h3>Meaning &amp; the Examined Life</h3>
+        <p>Living deliberately in a culture that often forgets how.</p>
+      </div>
+
+    </div>
   </div>
 </section>
 

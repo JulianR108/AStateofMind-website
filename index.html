@@ -69,21 +69,24 @@
   }
   .hero-label {
     position: absolute; bottom: 2rem; left: 2rem;
-    background: rgba(253,250,245,0.95); padding: 1.5rem 2rem;
-    border-left: 3px solid var(--rust); max-width: 260px;
+    background: rgba(253,250,245,0.95); padding: 1.8rem 2.4rem;
+    border-left: 3px solid var(--rust); max-width: 360px;
   }
   .hero-label p {
-    font-family: var(--font-serif); font-size: 1.1rem; font-weight: 300; font-style: italic;
-    color: var(--charcoal); line-height: 1.5;
+    font-family: var(--font-serif); font-size: 1.5rem; font-weight: 300; font-style: italic;
+    color: var(--charcoal); line-height: 1.4;
   }
   .hero-label span {
-    display: block; margin-top: 0.5rem;
-    font-size: 0.7rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
+    display: block; margin-top: 0.7rem;
+    font-size: 0.72rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--earth);
   }
 
   .about-section {
+    background: var(--warm-white);
     padding: 7rem 4rem;
+  }
+  .about-section-inner {
     display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
     max-width: 1300px; margin: 0 auto;
   }
@@ -126,7 +129,9 @@
   }
 
   .testimonials {
-    background: var(--cream); padding: 7rem 4rem;
+    background: var(--warm-white); padding: 7rem 4rem;
+    border-top: 1px solid rgba(176,148,118,0.15);
+    border-bottom: 1px solid rgba(176,148,118,0.15);
   }
   .testimonials-header { text-align: center; margin-bottom: 4rem; }
   .testimonials-header h2 {
@@ -138,7 +143,7 @@
     max-width: 1300px; margin: 0 auto;
   }
   .testimonial-card {
-    background: var(--warm-white); padding: 2rem;
+    background: var(--cream); padding: 2rem;
     border-top: 3px solid var(--rust);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex; flex-direction: column;
@@ -374,14 +379,16 @@
   /* Intro / positioning section */
   .intro-section {
     padding: 7rem 4rem;
-    background: var(--warm-white);
+    background: var(--cream);
     position: relative;
+    border-top: 1px solid rgba(176,148,118,0.15);
+    border-bottom: 1px solid rgba(176,148,118,0.15);
   }
   .intro-section::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 50% 60% at 30% 40%, rgba(184,84,54,0.04) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 50% at 75% 70%, rgba(122,158,126,0.05) 0%, transparent 70%);
+    background: radial-gradient(ellipse 50% 60% at 30% 40%, rgba(184,84,54,0.05) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 75% 70%, rgba(122,158,126,0.06) 0%, transparent 70%);
     pointer-events: none;
   }
   .intro-inner {
@@ -413,21 +420,23 @@
 
   /* Why I'm Different section */
   .why-different {
-    padding: 7rem 4rem;
+    padding: 6rem 4rem;
     background: var(--cream);
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(176,148,118,0.18);
+    border-bottom: 1px solid rgba(176,148,118,0.18);
   }
   .why-different::before {
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 40% 50% at 15% 20%, rgba(184,84,54,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 85% 80%, rgba(79,115,85,0.08) 0%, transparent 70%);
+      radial-gradient(ellipse 45% 60% at 12% 20%, rgba(184,84,54,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 55% 50% at 88% 85%, rgba(79,115,85,0.13) 0%, transparent 70%);
     pointer-events: none;
   }
   .why-different-header {
-    max-width: 880px; margin: 0 auto 4.5rem;
+    max-width: 880px; margin: 0 auto;
     text-align: center;
     position: relative; z-index: 1;
   }
@@ -446,65 +455,6 @@
     color: var(--mid);
     line-height: 1.6;
     max-width: 60ch; margin: 0 auto;
-  }
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative; z-index: 1;
-  }
-  .pillar-card {
-    background: var(--warm-white);
-    padding: 2.5rem 2rem;
-    border: 1px solid rgba(176,148,118,0.18);
-    border-radius: 2px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    position: relative;
-  }
-  .pillar-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-    border-color: rgba(184,84,54,0.35);
-  }
-  .pillar-num {
-    font-family: var(--font-serif);
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    color: var(--rust);
-    margin-bottom: 1.4rem;
-  }
-  .pillar-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--charcoal);
-    margin-bottom: 1rem;
-    line-height: 1.3;
-  }
-  .pillar-card h3 em {
-    font-style: italic; color: var(--sage-dark);
-    font-weight: 300;
-  }
-  .pillar-card p {
-    font-size: 0.92rem;
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--mid);
-    margin: 0;
-  }
-  .why-different-tagline {
-    max-width: 720px; margin: 4.5rem auto 0;
-    text-align: center;
-    position: relative; z-index: 1;
-  }
-  .why-different-tagline p {
-    font-family: var(--font-serif);
-    font-size: 1.25rem; font-style: italic; font-weight: 300;
-    color: var(--charcoal);
-    line-height: 1.6;
   }
 
   .specialties {
@@ -557,6 +507,8 @@
   .contact-section {
     padding: 7rem 4rem;
     background: var(--cream);
+    border-top: 1px solid rgba(176,148,118,0.18);
+    border-bottom: 1px solid rgba(176,148,118,0.18);
   }
   .contact-inner {
     display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
@@ -648,13 +600,12 @@
     .hero-text { padding-right: 0; margin-bottom: 3rem; }
     .hero-visual { height: 60vw; min-height: 280px; }
     .hero-img-frame { left: 0; }
-    .about-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
+    .hero-label { padding: 1.3rem 1.6rem; max-width: 280px; }
+    .hero-label p { font-size: 1.15rem; }
+    .about-section { padding: 4rem 1.5rem; }
+    .about-section-inner { grid-template-columns: 1fr; gap: 2rem; }
     .testimonials, .specialties, .vision, .practice-info { padding: 4rem 1.5rem; }
     .intro-section, .why-different { padding: 4rem 1.5rem; }
-    .pillars-grid { grid-template-columns: 1fr; gap: 1rem; }
-    .pillar-card { padding: 2rem 1.5rem; }
-    .why-different-header { margin-bottom: 3rem; }
-    .why-different-tagline { margin-top: 3rem; }
     .testimonials-grid, .specialties-grid { grid-template-columns: 1fr; }
     .about-img { height: 400px; }
     .contact-section { padding: 4rem 1.5rem; }
@@ -700,59 +651,6 @@
     <p>Many people struggle with anxiety, trauma, relationship pain, or the sense that something deeper is missing. I help clients heal old wounds, reconnect to themselves, and create lives that feel meaningful, loving, and free.</p>
     <p>Together we work to heal trauma, resolve inner conflict, deepen relationships, and access greater confidence, meaning, and freedom.</p>
     <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary" target="_blank" style="margin-top: 1.5rem;">Book A Free Consultation</a>
-  </div>
-</section>
-
-<!-- WHY I'M DIFFERENT -->
-<section class="why-different scroll-reveal">
-  <div class="why-different-header">
-    <p class="section-label center">A Different Kind of Therapist</p>
-    <h2>A rare hybrid of clinical depth and <em>contemplative wisdom.</em></h2>
-    <p>Most therapists offer clinical skill. Most spiritual teachers offer contemplative depth. Few offer both — held inside an ethical, trauma-informed clinical container.</p>
-  </div>
-
-  <div class="pillars-grid">
-
-    <div class="pillar-card scroll-reveal">
-      <div class="pillar-num">— 01 —</div>
-      <h3>Licensed <em>Psychotherapist</em></h3>
-      <p>MA, LPC #76277. Clinically trained, ethically grounded, and informed by evidence-based modalities — held inside a real therapeutic container.</p>
-    </div>
-
-    <div class="pillar-card scroll-reveal">
-      <div class="pillar-num">— 02 —</div>
-      <h3>Trauma-Informed <em>Clinician</em></h3>
-      <p>Somatic, IFS (parts work), and EMDR-informed approaches to deep trauma healing — meeting the nervous system with care, not force.</p>
-    </div>
-
-    <div class="pillar-card scroll-reveal">
-      <div class="pillar-num">— 03 —</div>
-      <h3>Seasoned <em>Meditation Practitioner</em></h3>
-      <p>14+ years of personal practice. Studied with Tibetan Buddhist, Zen, and contemporary teachers including Yongey Mingyur Rinpoche, Sam Harris, and John Churchill.</p>
-    </div>
-
-    <div class="pillar-card scroll-reveal">
-      <div class="pillar-num">— 04 —</div>
-      <h3>Consciousness-Oriented <em>Guide</em></h3>
-      <p>Integrative support for transformational experiences — including psychedelic preparation and integration — grounded in safety, ceremony, and sound psychology.</p>
-    </div>
-
-    <div class="pillar-card scroll-reveal">
-      <div class="pillar-num">— 05 —</div>
-      <h3>Podcast Host & <em>Thought Leader</em></h3>
-      <p>Host of <em>A State of Mind Podcast</em> — long-form conversations with therapists, meditation teachers, and researchers at the leading edge of psychology and spirituality.</p>
-    </div>
-
-    <div class="pillar-card scroll-reveal">
-      <div class="pillar-num">— 06 —</div>
-      <h3>Premium <em>Transformational Practitioner</em></h3>
-      <p>Work that goes beyond symptom management — toward lasting change in who you are, how you relate, and the life you create.</p>
-    </div>
-
-  </div>
-
-  <div class="why-different-tagline scroll-reveal">
-    <p>"The quality of soulfulness and depth with which Julian operates is profound." — Kevin McKeag, client</p>
   </div>
 </section>
 
@@ -853,28 +751,39 @@
 
 </section>
 
+<!-- A DIFFERENT KIND OF THERAPIST (slim version after testimonials) -->
+<section class="why-different scroll-reveal">
+  <div class="why-different-header">
+    <p class="section-label center">A Different Kind of Therapist</p>
+    <h2>A rare hybrid of clinical depth and <em>contemplative wisdom.</em></h2>
+    <p>Most therapists offer clinical skill. Most spiritual teachers offer contemplative depth. Few offer both — held inside an ethical, trauma-informed clinical container.</p>
+  </div>
+</section>
+
 <!-- ABOUT JULIAN -->
 <section class="about-section scroll-reveal" id="about">
-  <div class="about-img">
-    <div class="about-img-main">
-      <img src="images/julian-portrait-doorway-1.jpg" alt="Julian Royce in his Boulder office">
-    </div>
-    <div class="about-img-accent">
-      <div class="about-img-accent-inner">
-        <div class="num">14+</div>
-        <div class="label">Years<br>Helping People</div>
+  <div class="about-section-inner">
+    <div class="about-img">
+      <div class="about-img-main">
+        <img src="images/julian-portrait-doorway-1.jpg" alt="Julian Royce in his Boulder office">
+      </div>
+      <div class="about-img-accent">
+        <div class="about-img-accent-inner">
+          <div class="num">14+</div>
+          <div class="label">Years<br>Helping People</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="about-text">
-    <p class="section-label">Meet Your Therapist</p>
-    <h2>Julian Royce</h2>
-    <p class="credentials">MA, LPC</p>
-    <p>I became a trauma-informed therapist, transformational coach, and meditation teacher to help people heal — and to rediscover their connection with themselves, their relationships, and the greater world.</p>
-    <p>Having seen the transformative power of this work — helping people heal from trauma, build healthy relationships, ease anxiety, and build a life that brings them genuine joy — I know it's possible for you as well.</p>
-    <p>Schedule a free consultation by clicking below, and we can see how I might be able to help. I hope I get the chance to meet you.</p>
-    <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
-    <a href="about.html" class="btn btn-outline">More About Me</a>
+    <div class="about-text">
+      <p class="section-label">Meet Your Therapist</p>
+      <h2>Julian Royce</h2>
+      <p class="credentials">MA, LPC</p>
+      <p>I became a trauma-informed therapist, transformational coach, and meditation teacher to help people heal — and to rediscover their connection with themselves, their relationships, and the greater world.</p>
+      <p>Having seen the transformative power of this work — helping people heal from trauma, build healthy relationships, ease anxiety, and build a life that brings them genuine joy — I know it's possible for you as well.</p>
+      <p>Schedule a free consultation by clicking below, and we can see how I might be able to help. I hope I get the chance to meet you.</p>
+      <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+      <a href="about.html" class="btn btn-outline">More About Me</a>
+    </div>
   </div>
 </section>
 
