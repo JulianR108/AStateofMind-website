@@ -27,6 +27,7 @@ const NAV_HTML = `
         <li><a href="psychedelic-therapy.html">Psychedelic Therapy</a></li>
         <li><a href="ketamine.html">Ketamine</a></li>
         <li><a href="psilocybin.html">Psilocybin</a></li>
+        <li><a href="mdma.html">MDMA</a></li>
       </ul>
     </li>
     <li class="nav-item has-dropdown">

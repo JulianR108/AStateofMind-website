@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDMA-Assisted Therapy — A State of Mind Therapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .coming-soon-hero {
+    position: relative;
+    min-height: 60vh;
+    padding: 11rem 4rem 5rem;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #2a4530 0%, #1c1c1c 100%);
+    text-align: center;
+  }
+  .coming-soon-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url('images/nature-cave-light-beams.jpg');
+    background-size: cover; background-position: center;
+    opacity: 0.25;
+  }
+  .coming-soon-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(28,28,28,0.4) 0%, rgba(28,28,28,0.85) 100%);
+  }
+  .coming-soon-hero-inner {
+    position: relative; z-index: 1;
+    max-width: 720px; margin: 0 auto;
+  }
+  .coming-soon-hero .section-label {
+    color: var(--sage-light); justify-content: center; margin-bottom: 1.5rem;
+  }
+  .coming-soon-hero .section-label::before { background: var(--sage-light); }
+  .coming-soon-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 300; line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--cream); margin-bottom: 1.5rem;
+  }
+  .coming-soon-hero h1 em { font-style: italic; color: var(--sage-light); }
+  .coming-soon-hero .subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.35rem; font-weight: 300; font-style: italic;
+    color: rgba(245,240,232,0.85); line-height: 1.6;
+    max-width: 52ch; margin: 0 auto 2.5rem;
+  }
+  .coming-soon-hero .cta-row {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  }
+  @media (max-width: 900px) {
+    .coming-soon-hero { padding: 7rem 1.5rem 4rem; min-height: 80vh; }
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-mount"></div>
+
+<header class="coming-soon-hero">
+  <div class="coming-soon-hero-inner">
+    <p class="section-label fade-up">Psychedelic Therapy</p>
+    <h1 class="fade-up delay-1">MDMA-Assisted <em>Therapy</em></h1>
+    <p class="subtitle fade-up delay-2">Information about MDMA-assisted therapy is coming soon. In the meantime, please reach out directly with any questions.</p>
+    <div class="cta-row fade-up delay-3">
+      <a href="psychedelic-therapy.html" class="btn btn-outline" style="border-color:rgba(245,240,232,0.5);color:var(--cream);">Psychedelic Therapy Overview</a>
+      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary" target="_blank">Book A Free Consultation</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- CONTACT SECTION -->
+<section class="shared-contact-section" id="contact">
+  <div class="shared-contact-inner">
+    <div class="shared-contact-info scroll-reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2>I would love to help you build a life that brings you happiness and fulfillment.</h2>
+      <p>Anxiety, depression, unhealthy relationships, loneliness — this doesn't have to be your normal. You can make positive change.</p>
+      <p>Reach out to me today to schedule a free 15 minute consultation.</p>
+      <p>I hope to hear from you.</p>
+      <a href="tel:3034166116" class="phone-link">(303) 416-6116</a>
+      <br>
+      <a href="https://calendly.com/astateofmind/consultation" class="btn btn-primary schedule-btn" target="_blank">Schedule A Free Consultation</a>
+    </div>
+    <div class="shared-contact-form scroll-reveal">
+      <h3>Contact</h3>
+      <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! Please connect this form to your email service.');">
+        <div class="shared-form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="shared-form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE INFO -->
+<section class="shared-practice-info">
+  <div class="shared-practice-info-inner scroll-reveal">
+    <p class="section-label center">About Me</p>
+    <h2>We are a therapy practice offering therapy and counseling services in Boulder &amp; online throughout Colorado.</h2>
+    <div class="provider-block">
+      <span class="provider-label">Licensed Provider</span>
+      <span class="provider-name">Julian Royce, MA, LPC</span>
+      <span class="provider-license">#76277 Licensed Professional Counselor</span>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="site.js"></script>
+</body>
+</html>
